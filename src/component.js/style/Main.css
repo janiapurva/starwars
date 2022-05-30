@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.padding-overall {
+  padding: 1rem;
+}
+
+.text-underline {
+  border-bottom: 2px solid;
+}
+.sub-container {
+  padding: 2rem;
+}
