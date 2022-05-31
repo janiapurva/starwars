@@ -6,10 +6,7 @@ export const loadCharacterAsync = () => (dispatch) => {
 
   axios
     .get("https://swapi.dev/api/people/")
-    .then(
-      (response) => dispatch(actions.characterLoadSuccess(response.data))
-      // console.log(response.data)
-    )
+    .then((response) => dispatch(actions.characterLoadSuccess(response.data)))
     .catch((error) => actions.characterLoadFail(error.message));
 };
 

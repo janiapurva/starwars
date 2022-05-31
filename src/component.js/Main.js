@@ -14,20 +14,19 @@ import {
 
 function Main() {
   const dispatch = useDispatch();
-  const { isLoading, character, error, movieArray, characterName, lastDate } =
-    useSelector((state) => state.character);
+  const { character, movieArray, characterName, lastDate } = useSelector(
+    (state) => state.character
+  );
 
   useEffect(() => {
     dispatch(loadCharacterAsync());
   }, [dispatch]);
   const handleSelect = (e) => {
-    // console.log([e]);
     const split = e.split(",");
 
     dispatch(movieLoaderAsync(split));
   };
   const handleTitleName = (e) => {
-    // console.log(e);
     dispatch(chracterName(e));
   };
   return (
