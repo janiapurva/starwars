@@ -18,11 +18,19 @@ export const movieLoaderAsync = (movieList) => (dispatch) => {
     axios.get(`${everyMovie}`).then((res) => res.data)
   );
 
-  Promise.all(fetchMovieArr).then(
-    (res) => dispatch(actions.MovieLoadSuccess(res))
+  Promise.all(fetchMovieArr).then((res) => {
+    dispatch(actions.MovieLoadSuccess(res));
 
-    // dispatch(actions.lastDate())
-  );
+    const findingLattestDate = res.filter((res) => res.release_date);
+
+    const filterDate = findingLattestDate
+      .map((x) => {
+        return ` ${x.title} - ${new Date(x.release_date).getFullYear()}`;
+      })
+      .sort()
+      .slice(-1);
+    dispatch(actions.lastDate(filterDate));
+  });
 };
 
 export const chracterName = (charcterName) => (dispatch) => {

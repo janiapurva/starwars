@@ -14,13 +14,12 @@ import {
 
 function Main() {
   const dispatch = useDispatch();
-  const { isLoading, character, error, movieArray, characterName } =
+  const { isLoading, character, error, movieArray, characterName, lastDate } =
     useSelector((state) => state.character);
 
   useEffect(() => {
     dispatch(loadCharacterAsync());
   }, [dispatch]);
-  // console.log(movieArray);
   const handleSelect = (e) => {
     // console.log([e]);
     const split = e.split(",");
@@ -70,7 +69,7 @@ function Main() {
         </div>
         <div className="sub-container">
           <div className="padding-overall">Name/Year last Movie:</div>
-          <div className="text-underline">Movie xxy-1989</div>
+          <div className="text-underline">{movieArray && lastDate[0]}</div>
         </div>
       </div>
     </>
