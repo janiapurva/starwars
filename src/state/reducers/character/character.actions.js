@@ -14,7 +14,7 @@ const characterLoadFail = (errorMessage) => ({
   payload: errorMessage,
 });
 
-const MovieLoadSuccess = (users) => ({
+const movieLoadSuccess = (users) => ({
   type: actionTypes.MOVIE_LOAD_SUCCESS,
   payload: users,
 });
@@ -30,7 +30,7 @@ export default {
   characterLoadStart,
   characterLoadSuccess,
   characterLoadFail,
-  MovieLoadSuccess,
+  movieLoadSuccess,
   lastDate,
   characterName,
 };

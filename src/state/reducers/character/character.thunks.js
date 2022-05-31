@@ -16,7 +16,7 @@ export const movieLoaderAsync = (movieList) => (dispatch) => {
   );
 
   Promise.all(fetchMovieArr).then((res) => {
-    dispatch(actions.MovieLoadSuccess(res));
+    dispatch(actions.movieLoadSuccess(res));
 
     const findingLattestDate = res.filter((res) => res.release_date);
 
